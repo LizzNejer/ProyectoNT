@@ -9,12 +9,11 @@ class FPagoMD
 
 		mysqli_select_db($idcon, "Implementos");
 
-	        $ID=$pago->getID();
-		$Descripcion=$pago->getDescripcion();
+		$ID_Pedido=$pago->getIdPedido();		
 		$total=$pago->getTotal();
 
-		$query= "INSERT INTO pagos(ID, Descripcion, Total)
-		VALUES('".$ID."', '".$Descripcion."','".$total."')";
+		$query= "INSERT INTO pagos(ID, Total)
+		VALUES('".$ID."','".$total."')";
 	
 		$result=mysqli_query($idcon,$query);
 
@@ -23,9 +22,8 @@ class FPagoMD
 			echo "Registro insertado exitosamente";
 			foreach($result as $row)
 			{
-				echo $row['ID']."<br>";
+				echo $row['ID','Total']."<br>";
 			}
-			
 		}		
 		else
 			die(mysqli_error($id_con));
