@@ -21,6 +21,11 @@ class FPagoMD
 		if($result)
 		{
 			echo "Registro insertado exitosamente";
+			foreach($result as $row)
+			{
+				echo $row['ID']."<br>";
+			}
+			
 		}		
 		else
 			die(mysqli_error($id_con));
