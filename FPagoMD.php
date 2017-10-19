@@ -5,7 +5,7 @@ class FPagoMD
         function insertar($pago) 
 	{
 
-		$id_con=mysqli_connect("localhost","root","");
+		$idcon=mysqli_connect("localhost","root","");
 
 		mysqli_select_db($idcon, "Implementos");
 
