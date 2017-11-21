@@ -1,5 +1,5 @@
 <?php
-    class InventarioDP
+    class ArticuloDP
     {
         var $codigo;
         var $nombre;
