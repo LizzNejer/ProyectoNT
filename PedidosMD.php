@@ -2,6 +2,15 @@
 include("Conexion.php");
 class PedidosMD
 {
+	PedidosDP $pediddp= new PedidoDP();
+	function verificarPedidoMD($valor)
+	{
+		if(trim($valor) == $pedido->getID_Pedido){
+		       return true;
+		    }else{
+		       return false;
+		    }
+	}
 
         function insertar($pedido) 
 	{
