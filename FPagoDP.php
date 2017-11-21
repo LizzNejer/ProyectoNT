@@ -1,11 +1,15 @@
 <?php
 
+
 class FPagoDP {
     //put your code here
     
             var $ID_Pedido="";
             var $total="";
             
+            function RelizarPago(){
+                $this->calcularFPagoMD=$total;
+            }
             
             function setID_Pedido($ID_Pedido)
             {
