@@ -33,6 +33,11 @@ class PedidosDP {
             {
                 return $this->ID_cliente;
             }
+	function verficarPedidoMD ()
+	{	
+		PedidosMD $pemd=new PedidosMD();
+		return $pemd-=verificarPedidoMD($this->getID_Pedido);
+	}
             
         }
  ?>
