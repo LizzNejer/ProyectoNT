@@ -1,13 +1,12 @@
 <?php
+include("Conexion.php");
 class PedidosMD
 {
 
         function insertar($pedido) 
 	{
 
-		$idcon=mysqli_connect("localhost","root","");
-
-		mysqli_select_db($idcon, "Implementos");
+		 $coleccion=conectar();
 	    
 		$fecha=$pedido->getFecha();
 		$cod_articulo=$pedido->getCodarticulo();
@@ -32,8 +31,7 @@ class PedidosMD
 	
 	function consultar($id){
 		
-		$idcon=mysqli_connect("localhost","root","");
-		mysqli_select_db($idcon, "Implementos");
+		 $coleccion=conectar();
 				$ID_Pedido = $id->getID_Pedido();
 				
 				$resultado=$idcon->find(['ID_Pedido'=>$ID_Pedido]);
@@ -45,8 +43,7 @@ class PedidosMD
 		
 	}
 	function modificar($id){
-		$idcon=mysqli_connect("localhost","root","");
-		mysqli_select_db($idcon, "Implementos");
+		 $coleccion=conectar();
 		pedidodp= new PedidosDP();
 		
 		$q = "UPDATE Implementos SET ID_Pedido="+pedidodp->getID_Pedido() +"WHERE ID_Pedido="+$id;
@@ -59,8 +56,7 @@ class PedidosMD
 	
 	function eliminar($id)
 	{
-		$idcon=mysqli_connect("localhost","root","");
-		mysqli_select_db($idcon, "Implementos");
+		 $coleccion=conectar();
 		$q = "DELETE * FROM Implementos WHERE ID_Pedido="+$id+;
 		$rs = mysql_query($q);
 		if($rs == false) {
