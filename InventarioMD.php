@@ -1,24 +1,29 @@
 <?php
-class InventarioMD
+include("Conexion.php");
+
+class ArticuloMD
 {
 
-    function insertar($cod_art) 
+    function insertar($articuloDP) 
 	{
-		$id_con=mysqli_connect("localhost","root","");
-
-		mysqli_select_db($id_con, "implementos");
-	
-		$cod_art=$cod_art;
+		$conec=conectar();
 		
-		$query= "INSERT INTO inventario(COD_ARTICULO)
-		VALUES($cod_art)";
+		$cod_art=$articuloDP->getCodigo();
+		$nombre==$articuloDP->getNombre();
+		$tipo=$articuloDP->getTipo();
+		$estado=$articuloDP->getEstado();
+		$valor=$articuloDP->getValor();
+		
+		$query= "insert into articulo (COD_ARTICULO,NOMBRE,TIPO,ESTADO,VALOR)
+		VALUES('".$cod_art."','".$nombre."','".$tipo."','".$estado."','".$valor."')";
 	
-		$result=mysqli_query($id_con,$query);
+		$result=mysqli_query($conec,$query);
 
 		if($result)
-			echo "Registro insertado exitosamente";
+			echo "Artículo insertado exitosamente";
 		else
-			die(mysqli_error($id_con));
+			die(mysqli_error($conec));
+		
 	}
         
 }
