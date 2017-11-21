@@ -4,15 +4,15 @@ include("Conexion.php");
 class ArticuloMD
 {
 
-    function insertar($articuloDP) 
+    function insertar($articulo) 
 	{
 		$conec=conectar();
 		
-		$cod_art=$articuloDP->getCodigo();
-		$nombre==$articuloDP->getNombre();
-		$tipo=$articuloDP->getTipo();
-		$estado=$articuloDP->getEstado();
-		$valor=$articuloDP->getValor();
+		$cod_art=$articulo->getCodigo();
+		$nombre==$articulo->getNombre();
+		$tipo=$articulo->getTipo();
+		$estado=$articulo->getEstado();
+		$valor=$articulo->getValor();
 		
 		$query= "insert into articulo (COD_ARTICULO,NOMBRE,TIPO,ESTADO,VALOR)
 		VALUES('".$cod_art."','".$nombre."','".$tipo."','".$estado."','".$valor."')";
