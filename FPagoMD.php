@@ -1,13 +1,11 @@
 <?php
+include("Conexion.php");
 class FPagoMD
 {
 
         function insertar($pago) 
 	{
-
-		$idcon=mysqli_connect("localhost","root","");
-
-		mysqli_select_db($idcon, "Implementos");
+ 		$coleccion=conectar();
 
 		$ID_Pedido=$pago->getIdPedido();		
 		$total=$pago->getTotal();
@@ -31,8 +29,7 @@ class FPagoMD
 	
 	function consultar($nuevo){
 		
-		$idcon=mysqli_connect("localhost","root","");
-		mysqli_select_db($idcon, "Implementos");
+		 $coleccion=conectar();
 				$ID_Pedido = $nuevo->getID_Pedido();
 				
 				$resultado=$coleccion->find(['ID_Pedido'=>$ID_Pedido]);
@@ -44,8 +41,7 @@ class FPagoMD
 		
 	}
 	function modificar($id){
-		$idcon=mysqli_connect("localhost","root","");
-		mysqli_select_db($idcon, "Implementos");
+		 $coleccion=conectar();
 		fpagoDP= new FPagoDP();
 		
 		$q = "UPDATE Implementos SET ID_Pedido="+pagodp->getID_Pedido() +"WHERE ID="+$id;
@@ -58,8 +54,7 @@ class FPagoMD
 	
 	function eliminar($id)
 	{
-		$idcon=mysqli_connect("localhost","root","");
-		mysqli_select_db($idcon, "Implementos");
+		 $coleccion=conectar();
 		$q = "DELETE * FROM Implementos WHERE ID="+$id+;
 		$rs = mysql_query($q);
 		if($rs == false) {
