@@ -34,8 +34,7 @@ class PedidosMD
 				echo $row['fecha','cod_articulo','ID_cliente']."<br>";
 			}
 		}		
-		else
-			die(mysqli_error($id_con));
+		
 	}
 	
 	function consultar($id){
