@@ -1,0 +1,212 @@
+<html><head>
+
+<title>Verificacion de campos y envio</title>
+
+<script language="JavaScript">
+
+<!--
+
+
+
+function runTest(form, button)  {
+
+	Ret = false;
+
+	if (button.name == "1") Ret = testBox1(form);
+
+	if (button.name == "2") Ret = testBox2(form);
+
+	if (button.name == "3") Ret = testBox3(form);
+
+	if (button.name == "4") Ret = testBox4(form);
+
+	if (Ret)
+
+		alert ("Campo correcto!");
+
+}
+
+
+
+function testBox1(form) {
+
+	Ctrl = form.campo1;
+
+	if (Ctrl.value == "" || Ctrl.value.indexOf ('@', 0) == -1) {
+
+		validatePrompt (Ctrl, "Entrar un E-mail")
+
+		return (false);
+
+	} else
+
+		return (true);
+
+}
+
+
+
+function testBox2(form) {
+
+	Ctrl = form.campo2;
+
+	if (Ctrl.value.length != 5) {
+
+		validatePrompt (Ctrl, "Entrar cinco caracteres")
+
+		return (false);
+
+	} else
+
+		return (true);
+
+}
+
+
+
+function testBox3(form) {
+
+	Ctrl = form.campo3;
+
+	if (Ctrl.value.length < 3) {
+
+		validatePrompt (Ctrl, "Entrar tres o mas caracteres")
+
+		return (false);
+
+	} else
+
+		return (true);
+
+}
+
+
+
+function testBox4(form) {
+
+	Ctrl = form.campo4;
+
+	if (Ctrl.value == "") {
+
+		validatePrompt (Ctrl, "Entrar cualquier cosa")
+
+		return (false);
+
+	} else
+
+		return (true);
+
+}
+
+
+
+function runSubmit (form, button)  {
+
+	if (!testBox1(form)) return;
+
+	if (!testBox2(form)) return;
+
+	if (!testBox3(form)) return;
+
+	if (!testBox4(form)) return;
+
+	alert ("Todos los campos OK! Se procede a enviar");
+
+	document.test.submit();	
+
+}
+
+
+
+function validatePrompt (Ctrl, PromptStr) {
+
+	alert (PromptStr)
+
+	Ctrl.focus();
+
+	return;
+
+}
+
+
+
+
+
+function loadDoc() {
+
+	// initial focus; use if needed
+
+	document.test.campo1.focus ();
+
+	return;
+
+}
+
+//-->
+
+</script>
+
+</head>
+
+<body bgcolor="00FFFF" onload="loadDoc()">
+
+<center>
+
+<h3>Verificación de campos en un formulario con JavaScript.<br> Envio a un servidor.</h3></center>
+
+<center>
+
+<form name="test" action="http://mecaniza.sestud.uv.es/cgi-bin/test2-cgi" method="GET">
+<table border="">
+<tbody><tr>
+    <td>Entra tu E-mail (p.ej.: pepe@uv.es):</td>
+
+    <td><input type="text" name="campo1"></td>
+
+    <td><input type="button" name="1" value="Test" onclick="runTest(this.form, this)"></td>
+</tr>
+<tr>
+    <td>Entrar cinco caracteres: </td>
+
+    <td><input type="text" name="campo2"></td>
+
+    <td><input type="button" name="2" value="Test" onclick="runTest(this.form, this)"></td>
+
+</tr>
+<tr>
+
+
+    <td>Entrar tres o más caracteres:</td>
+
+    <td><input type="text" name="campo3"></td>
+
+    <td><input type="button" name="3" value="Test" onclick="runTest(this.form, this)"></td>
+</tr>
+<tr>
+    <td>Entrar cualquier cosa:</td>
+
+    <td><input type="text" name="campo4"></td>
+
+    <td><input type="button" name="4" value="Test" onclick="runTest(this.form, this)"></td>
+</tr>
+<tr>
+    <td align="center"><input type="button" name="Tfin" value="Test final + envio" onclick="runSubmit(this.form, this)"></td>
+    <td align="center"><input type="reset" name="reset" value="Inicializar" onclick="this.form.campo1.value = ''"></td>
+</tr>
+
+
+
+</tbody></table>
+
+</form></center>
+
+
+
+<hr>
+<center>
+<h3>
+[<a href="javascr.htm">Volver</a>]
+</h3>
+</center>
+
+</body></html>
