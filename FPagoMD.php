@@ -23,8 +23,7 @@ class FPagoMD
 				echo $row['ID','Total']."<br>";
 			}
 		}		
-		else
-			die(mysqli_error($id_con));
+		
 	}
 	
 	function consultar($nuevo){
