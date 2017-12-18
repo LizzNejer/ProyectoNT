@@ -1,0 +1,29 @@
+<?php
+// :: es para no tener que instanciar un objeto
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;//
+use App\Senal;
+class SenalLN extends Controller
+{
+	public function show($consulta)
+	{
+		return Senal::find($consulta);
+	}
+	public function index()
+	{
+		return  Senal::all();
+	}
+	public function update(Request $request, $id)
+	{
+		$registro= Senal::findOrFail($id);
+		$registro->update($request->all());
+	
+		return $registro;
+	}
+	public function delete(Request $request, $id)
+	{
+		$registro= Senal::findOrFail($id);
+		$registro->delete();
+		return 204;
+	}
+}
