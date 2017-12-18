@@ -1,0 +1,30 @@
+<?php
+// :: es para no tener que instanciar un objeto
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;//
+use App\Pago;
+class PagoLN extends Controller
+{
+	public function show($consulta)
+	{
+		return Pago::find($consulta);
+	}
+	public function index()
+	{
+		return  Pago::all();
+	}
+	public function update(Request $request, $id)
+	{
+		$registro= Pago::findOrFail($id);
+		$registro->update($request->all());
+	
+		return $registro;
+	}
+	public function delete(Request $request, $id)
+	{
+		$registro= Pago::findOrFail($id);
+		$registro->delete();
+	
+		return 204;
+	}
+}
