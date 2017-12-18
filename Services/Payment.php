@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Student extends Model
+class Payment extends Model
 {
     //
-	protected $table='testudiante';//para cambiar el nombre de la tabla
+	protected $table='tpago';//para cambiar el nombre de la tabla
 	
 	public $timetamps = false;
 }
