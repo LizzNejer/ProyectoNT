@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;//
 
-use App\Student;
+use App\Stock;
 
-class LibrosLN extends Controller
+class VerificarExistencias extends Controller
 {
 	public function show($consulta)
 	{
